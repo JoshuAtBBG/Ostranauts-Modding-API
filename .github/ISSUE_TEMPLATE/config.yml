@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or discuss an idea
+    url: https://discord.gg/bluebottlegames
+    about: Half-formed idea or need help? Chat with other modders on Discord first.
+  - name: Modding FAQ (already possible / won't support)
+    url: https://github.com/JoshuAtBBG/Ostranauts-Modding-API/wiki/FAQ
+    about: Check here before opening a request. Many common asks are answered already.

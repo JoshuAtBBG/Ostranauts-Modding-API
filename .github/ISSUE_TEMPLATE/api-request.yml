@@ -1,0 +1,123 @@
+name: API Request
+description: Request a new capability or hook in the modding API
+title: "[API Request] "
+labels: ["api-request", "status: needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping shape the modding API! Please **search existing issues** and the
+        "already possible / won't support" FAQ before submitting. Requests that clearly
+        describe a concrete mod goal are much easier for us to evaluate.
+
+        You can vote on existing requests with a 👍 reaction instead of opening a duplicate.
+
+  - type: textarea
+    id: goal
+    attributes:
+      label: What does your mod want to do?
+      description: Describe the mod or feature in 1-3 sentences. Link the mod if it exists.
+      placeholder: "My mod adds a bounty system that rewards the player when specific enemies die."
+    validations:
+      required: true
+
+  - type: textarea
+    id: blocker
+    attributes:
+      label: What can't you do today, and why?
+      description: What have you tried with the current API? What is missing or blocking you?
+      placeholder: "There is no event for crew death, so I can't react to it without polling every frame."
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Current workaround (if any)
+      description: >
+        For example a Harmony/BepInEx patch, reflection, or copying game data.
+        Naming the exact class and method you patch helps a lot.
+      placeholder: "Harmony postfix on CondOwner.Destroy()"
+    validations:
+      required: false
+
+  - type: textarea
+    id: api-shape
+    attributes:
+      label: Suggested API shape
+      description: Optional but encouraged. Pseudo-code is fine.
+      render: csharp
+      placeholder: |
+        GameEvents.OnCrewDied += (crewMember, killer) => { ... };
+    validations:
+      required: false
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Game area
+      description: Which part of the game does this touch?
+      options:
+        - Building / Construction
+        - Flying / Navigation
+        - Player / Characters
+        - Items / Inventory
+        - World / Stations
+        - UI
+        - Audio
+        - Save / Load
+        - Assets / Content loading
+        - Mod loading / Tooling
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Who would benefit?
+      description: Would this unlock only your mod, or a whole category of mods?
+      options:
+        - Only my mod
+        - A few mods I know of
+        - A whole category of mods
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: others
+    attributes:
+      label: Related mods or threads
+      description: Link other mods, issues, or Discord threads that run into the same limitation.
+    validations:
+      required: false
+
+  - type: textarea
+    id: risks
+    attributes:
+      label: Anything risky?
+      description: >
+        Your best guess is fine. Could this affect saves, multiplayer, performance in hot
+        paths, or game fairness?
+    validations:
+      required: false
+
+  - type: input
+    id: game-version
+    attributes:
+      label: Game and API version
+      description: The version you are developing against.
+      placeholder: "Ostranauts 1.0.1.8 / API 0.3.0"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and the FAQ, and this has not been requested or ruled out.
+          required: true
+        - label: I described a concrete mod use case, not only "expose class X".
+          required: true
